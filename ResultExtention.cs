@@ -15,5 +15,8 @@ namespace ResultPattern
     {
         public static IActionResult Resolve<T>(this Result<T> result, Func<Result<T>, IActionResult> success, Func<Result<T>, IActionResult> failure)
             => result.IsSuccess ? success(result)! : failure(result);
+
+        public static ActionResult ToActionResult<T>(this Result<T> result)
+            => result.IsSuccess ? new OkObjectResult(result.Data) : new BadRequestObjectResult(result.Message);
     }
 }
