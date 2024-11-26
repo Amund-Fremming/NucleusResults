@@ -7,45 +7,64 @@
     /// <param name="Data">Generic data on sucess.</param>
     /// <param name="Message">Descriptive message if there is an the error.</param>
     /// <param name="Exception">Exception thrown, used maily for debugging.</param>
-    public record Result<T>(T Data, string Message = "", Exception? Exception = null) : IResult<T>
+    public record Result<T>(T Data, Error Error) : IResult, IResult<T>
     {
-        public bool IsSuccess => Data != null;
+        /// <summary>
+        /// Indicates if the operation failed or not.
+        /// </summary>
+        public bool IsError => Error is not null && Error.Exception is not null;
 
         /// <summary>
         /// Method for simplifying the creation of a successful Result.
         /// </summary>
-        public static Result<T> Success(T data) => new(data);
+        public static Result<T> Ok(T data) => new(data, null!);
 
         /// <summary>
-        /// Method for simplifying the creation of a failed Result.
-        /// </summary>
-        public static Result<T> Failure(string message, Exception exception) => new(default!, message, exception);
-
-        /// <summary>
-        /// Implicit converts data into a Result object. Used for retuning data directly without
-        /// the need for returning a Result object. Only to be used for successful operations.
+        /// Implicit converts data into a successful Result object. Used for retuning data directly without
+        /// the need for returning a Result object.
         /// </summary>
         /// <param name="data">Data to be wrapped.</param>
-        public static implicit operator Result<T>(T data) => new(data);
+        public static implicit operator Result<T>(T data) => new(data, null!);
+
+        /// <summary>
+        /// Implicit converts error into a failed Result object. Used for retuning error directly without
+        /// the need for returning a Result object.
+        /// </summary>
+        /// <param name="error">Error to be wrapped.</param>
+        public static implicit operator Result<T>(Error error) => new(default!, error);
     }
 
     /// <summary>
     /// Represents an indication of the result of an operation, encapsulating success or failure state.
     /// </summary>
-    /// <param name="Message">Descriptive message if there is an the error.</param>
-    /// <param name="Exception">Exception thrown, used maily for debugging.</param>
-    public record Result(string Message = "", Exception? Exception = null) : IResult
+    /// <param name="Error">Error that occurred.</param>
+    public record Result(Error Error) : IResult
     {
-        public bool IsSuccess => Exception == null;
+        public bool IsError => Error is not null && Error.Exception is not null;
+
+        /// <summary>
+        /// Used for getting the error message.
+        /// </summary>
+        public string Message => Error!.Message;
 
         /// <summary>
         /// Method for simplifying the creation of a successful Result.
         /// </summary>
-        public static Result Success() => new();
+        public static Result Ok() => new(Error: null!);
 
         /// <summary>
-        /// Method for simplifying the creation of a failed Result.
+        /// Implicit converts error into a failed Result object. Used for retuning error directly without
+        /// the need for returning a Result object.
         /// </summary>
-        public static Result Failure(string message, Exception exception) => new(message, exception);
+        /// <param name="error">Error to be wrapped.</param>
+        public static implicit operator Result(Error error) => new(error);
+
+        public static Result operator &(Result left, Result right)
+        {
+            if (left.IsError)
+                return left;
+
+            return right;
+        }
     }
 }

@@ -2,9 +2,8 @@
 {
     public interface IResult
     {
-        bool IsSuccess { get; }
-        string Message { get; }
-        Exception? Exception { get; }
+        bool IsError { get; }
+        Error? Error { get; }
     }
 
     public interface IResult<T> : IResult
