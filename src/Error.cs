@@ -1,4 +1,4 @@
-﻿namespace ResultPattern.src
+﻿namespace WrapResults.src
 {
     /// <summary>
     /// Used for expressing a error result.
