@@ -44,7 +44,6 @@ public WrapResult<SomeOtherObject> OuterMethod()
 	return result;
 }
 ```
-.
 
 **When called from outer class**
 ```C#
@@ -72,7 +71,7 @@ public IActionResult CreateGame()
 }
 ```
 
-**Cases where the type T needs to change**
+### Cases where the type T needs to change**
 ```C#
 public WrapResult<Alfa> DoSomething()
 {
