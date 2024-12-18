@@ -1,4 +1,4 @@
-﻿namespace WrapResults.src
+﻿namespace NucleusResult.src
 {
     /// <summary>
     /// Used for expressing a error result.

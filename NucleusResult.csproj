@@ -8,12 +8,12 @@
 	  <OutputType>Library</OutputType>
 	  <TargetFramework>net8.0</TargetFramework>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <PackageId>WrapResults</PackageId>
+	  <PackageId>NucleusResults</PackageId>
 	  <Version>1.0.0</Version>
 	  <Authors>Amund Fremming</Authors>
 	  <Description>This pattern serves as an alternative to throwing exceptions for handling expected or non-critical errors in a simple way, reducing unnecessary CPU overhead. Instead of relying on exceptions for flow control, SimpleResults allows you to communicate results (data, messages, and exceptions) in a more structured and efficient way.</Description>
 	  <PackageTags>library;result;resultpattern;nuget</PackageTags>
-	  <RepositoryUrl>https://github.com/Amund-Fremming/SimpleResults</RepositoryUrl>
+	  <RepositoryUrl>https://github.com/Amund-Fremming/NucleusResults</RepositoryUrl>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
