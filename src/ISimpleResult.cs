@@ -1,12 +1,12 @@
 ﻿namespace ResultPattern.src
 {
-    public interface IResult
+    public interface ISimpleResult
     {
         bool IsError { get; }
         Error? Error { get; }
     }
 
-    public interface IResult<T> : IResult
+    public interface ISimpleResult<T> : ISimpleResult
     {
         T Data { get; }
     }

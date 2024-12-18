@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+	  <OutputType>Exe</OutputType>
+	  <TargetFramework>net8.0</TargetFramework>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageId>SimpleResults</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Amund Fremming</Authors>
+	  <Description>This pattern serves as an alternative to throwing exceptions for handling expected or non-critical errors in a simple way, reducing unnecessary CPU overhead. Instead of relying on exceptions for flow control, SimpleResults allows you to communicate results (data, messages, and exceptions) in a more structured and efficient way.</Description>
+	  <PackageTags>library;result;resultpattern;nuget</PackageTags>
+	  <RepositoryUrl>https://github.com/yourrepo</RepositoryUrl>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+</Project>
