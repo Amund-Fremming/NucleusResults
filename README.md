@@ -61,19 +61,6 @@ public WrapResult<SomeOtherObject> OuterMethod()
 }
 ```
 
-**When called from outer class**
-```C#
-public IActionResult CreateGame()
-{
-	var result = CreateGame();
-	return result.Resolve(
-		success => {
-			// Do some more
-		}),
-		error => BadRequest(result.Message));
-}
-```
-
 **When called from controller**
 ```C#
 public IActionResult CreateGame()
