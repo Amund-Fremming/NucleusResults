@@ -1,4 +1,4 @@
-﻿namespace NucleusResult.src
+﻿namespace NucleusResults.Core
 {
     public interface INucleusResult
     {

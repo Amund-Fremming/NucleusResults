@@ -1,4 +1,4 @@
-﻿namespace NucleusResult.src
+﻿namespace NucleusResults.Core
 {
     /// <summary>
     /// Represents the result of an operation, encapsulating success or failure state,
@@ -13,6 +13,11 @@
         /// Indicates if the operation failed or not.
         /// </summary>
         public bool IsError => Error is not null && Error.Exception is not null;
+
+        /// <summary>
+        /// Used for getting the error message.
+        /// </summary>
+        public string Message => Error!.Message;
 
         /// <summary>
         /// Method for simplifying the creation of a successful Result.

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace NucleusResult.src
+namespace NucleusResults.Core
 {
     public static class NucleusResultExtention
     {

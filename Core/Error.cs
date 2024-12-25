@@ -1,4 +1,4 @@
-﻿namespace NucleusResult.src
+﻿namespace NucleusResults.Core
 {
     /// <summary>
     /// Used for expressing a error result.
