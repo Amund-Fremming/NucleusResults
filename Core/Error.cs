@@ -5,5 +5,5 @@
     /// </summary>
     /// <param name="Exception">That was thrown.</param>
     /// <param name="Message">To display to end user.</param>
-    public record Error(Exception Exception, string Message);
+    public record Error(Exception? Exception = null, string Message);
 }

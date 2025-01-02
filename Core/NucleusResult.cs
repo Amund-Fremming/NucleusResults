@@ -50,7 +50,7 @@
         /// <summary>
         /// Used for getting the error message.
         /// </summary>
-        public string Message => Error!.Message;
+        public string Message => Error == null ? "No error message present." : Error.Message;
 
         /// <summary>
         /// Method for simplifying the creation of a successful Result.
